@@ -1,0 +1,17 @@
+<!--<seelog minlevel="warn" maxlevel="error">-->
+<seelog >
+	<outputs formatid="common">
+			<console />
+			<!--	
+		<filter levels="error">
+			<file path="error.log" />
+		</filter>-->
+		<filter levels="warn">
+			<rollingfile type="date" filename="warn.log" datepattern="20060102"/>
+		</filter>
+	</outputs>
+	<formats>
+			<format id="common" format="%Date %Time [%LEVEL] %Msg%n" />
+			<!--<format id="common" format="%Date %Time %RelFile %Func %Msg%n" />-->
+	</formats>
+</seelog>
