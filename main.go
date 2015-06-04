@@ -2,25 +2,25 @@ package main
 
 import (
 	"fmt"
-	"time"
+	//"sync"
 	//"reflect"
+	"time"
 	//"os"
 	//"os/exec"
+	//"sort"
+
+	//"bytes"
+	//"io/ioutil"
+	//"io"
+	//"net/http"
 )
 
 func main() {
-	b := make(chan int)
-	fmt.Println("1 ", b)
-	go func(bb chan int) {
-		time.Sleep(time.Second * 2)
-		fmt.Println("go ", bb)
-		bb <- 1
-	}(b)
-	close(b)
-	b = make(chan int)
-	fmt.Println("2 ", b)
-	time.Sleep(time.Second * 5)
-	fmt.Println("OK: ")
+	//url := "http://mvvideo4.meitudata.com/539817f2c44405901.mp4"
+	url := "http://mvvideo2.meitudata.com/556562923dab95528.mp4"
+	fmt.Println(len(url))
+	fmt.Println(len([]byte(url)))
+
 	/**
 	file, _ := os.Getwd()
 	fmt.Println("current path:", file)
@@ -40,6 +40,11 @@ func main() {
 	args := []string{"a", "b"}
 	c(args[0:])
 	**/
+}
+
+func test2(arg string) (filePath []string) {
+	fmt.Println(filePath == nil)
+	return
 }
 
 func test(err chan error) {

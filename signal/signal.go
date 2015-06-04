@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	//"time"
+	"time"
 	//"github.com/lankecheng/stringutil"
 )
 
@@ -22,12 +22,16 @@ func main() {
 	go func() {
 		sig := <-sig_chan
 		fmt.Println("here it is interrupt", sig)
-		os.Exit(1)
+		os.Exit(0)
 	}()
-	for {
-		panic(3354)
-		//time.Sleep(time.Second * 1)
+	//for {
+	//panic(3354)
+	for i := 1; i <= 10; i++ {
+		time.Sleep(1 * time.Second)
+		fmt.Printf("%v,", i)
 	}
+	//	os.Exit(1)
+	//}
 	//a := make(chan int)
 	//<-a
 	//for {

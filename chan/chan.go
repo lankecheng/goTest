@@ -27,11 +27,26 @@ func main() {
 		fmt.Println(v, "-timeout-", ok)
 	}
 	**/
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 100)
 	fmt.Println("read first time:", <-c)
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 100)
 	fmt.Println("read second time:", <-c)
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 100)
 	fmt.Println("read third time:", <-c)
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Millisecond * 100)
+
+	fmt.Println("#############")
+	s := make(chan int, 2)
+	go func() {
+		//time.Sleep(10 * time.Millisecond)
+		s <- 1
+		s <- 0
+		s <- 2
+		close(s)
+	}()
+	//close(s)
+	time.Sleep(10 * time.Millisecond)
+	for v := range s {
+		fmt.Println(v)
+	}
 }
