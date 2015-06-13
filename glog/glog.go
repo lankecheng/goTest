@@ -2,9 +2,15 @@ package main
 
 import (
 	"github.com/golang/glog"
+	"fmt"
+	"os"
+	"flag"
 )
 
 func main() {
+	fmt.Println(os.TempDir())
+	flag.Parse()
+
 	glog.Info("hello, glog")
 	glog.Warning("warning glog")
 	glog.Error("error glog")

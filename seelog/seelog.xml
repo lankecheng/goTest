@@ -6,7 +6,13 @@
 		<filter levels="error">
 			<file path="error.log" />
 		</filter>-->
-		<filter levels="warn">
+        <splitter>
+            <filter levels="info">
+                <rollingfile type="date" filename="s.log" datepattern="20060102"/>
+            </filter>
+        </splitter>
+
+		<filter levels="warn, error">
 			<rollingfile type="date" filename="warn.log" datepattern="20060102"/>
 		</filter>
 	</outputs>
